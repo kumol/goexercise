@@ -2,11 +2,23 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 )
 
-var totalBalance int = 1000
+func getTotalBalance() int {
+	byteBalance, _ := os.ReadFile("balance.txt")
+	var strBalance string = string(byteBalance)
+	balance, _ := strconv.ParseInt(strBalance, 10, 64)
+	return int(balance)
+}
+func setTotalBalance(balance int) {
+	strbalance := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(strbalance), 0644)
+}
 
 func main() {
+	totalBalance := getTotalBalance()
 	fmt.Println("Welcome to the go Bank Application!")
 	for {
 		process := takeInput("What you want to do? \n1. Check Balance \n2. Deposit Money \n3. Withdraw Money \n4. Exit \nYour choice: ")
@@ -18,6 +30,7 @@ func main() {
 			fmt.Println("Depositing money...")
 			totalBalance = totalBalance + amount
 			fmt.Println("New balance is: ", totalBalance)
+			setTotalBalance(totalBalance)
 		} else if process == 3 {
 			amount := takeInput("Enter the amount to withdraw: ")
 			fmt.Println("Withdrawing money...")
@@ -28,6 +41,7 @@ func main() {
 				totalBalance = totalBalance - amount
 				fmt.Println("New balance is: ", totalBalance)
 			}
+			setTotalBalance(totalBalance)
 		} else if process == 4 {
 			fmt.Println("Exiting...")
 			break
