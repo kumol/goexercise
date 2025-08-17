@@ -26,12 +26,19 @@ func main() {
 		birthDate: birthDate,
 		createdAt: time.Now(),
 	}
-	displayUser(user1)
+	user1.displayUser()
+	user1.updateUser()
+	user1.displayUser()
 }
 
-func displayUser(user user) {
+func (user *user) displayUser() {
 	fmt.Printf("User Details:\nFirst Name: %s\nLast Name: %s\nBirth Date: %s\nCreated At: %s\n",
 		user.firstName, user.lastName, user.birthDate, user.createdAt.Format(time.RFC3339))
+}
+
+func (user *user) updateUser() {
+	user.firstName = getInput("Please enter your new first name: ")
+	user.lastName = getInput("Please enter your new last name: ")
 }
 
 func getInput(outPut string) string {
