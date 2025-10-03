@@ -5,10 +5,14 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"example.com/functions"
 	//note "example.com/notes"
 )
 
 func main() {
+	functions.Mani()
+	//arrays.ArraySlice()
 	// This is a placeholder for the main function.
 	// You can add your code here.
 	// title := getInput("Enter the title of the note: ")
@@ -25,19 +29,19 @@ func main() {
 	// 	fmt.Println("Note saved successfully!")
 	// }
 
-	values := [19]float64{1, 2, 3, 4, 5, 6, 7}
-	var productName [19]string
-	productName = [19]string{"Apple", "Banana", "Orange"}
-	fmt.Print(values)
-	fmt.Print(productName)
-	fmt.Print(len(values), cap(values))
-	fmt.Println(productName)
-	fmt.Print(productName[0:2])
-	selected := values[1:5]
-	superSelected := selected[1:3]
-	fmt.Print(selected)
-	fmt.Print(superSelected)
-	fmt.Print(len(superSelected), cap(superSelected))
+	// values := [19]float64{1, 2, 3, 4, 5, 6, 7}
+	// var productName [19]string
+	// productName = [19]string{"Apple", "Banana", "Orange"}
+	// fmt.Print(values)
+	// fmt.Print(productName)
+	// fmt.Print(len(values), cap(values))
+	// fmt.Println(productName)
+	// fmt.Print(productName[0:2])
+	// selected := values[1:5]
+	// superSelected := selected[1:3]
+	// fmt.Print(selected)
+	// fmt.Print(superSelected)
+	// fmt.Print(len(superSelected), cap(superSelected))
 }
 
 func getInput(display string) string {
